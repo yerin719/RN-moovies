@@ -1,11 +1,16 @@
 import React from 'react';
 import {useState, useEffect, useCallback} from 'react';
-import * as SplashScreen from 'expo-splash-screen';
 import {Text, Image, View} from 'react-native';
-import * as Font from 'expo-font';
 
-import {Ionicons} from '@expo/vector-icons';
+// Navigation
+import {NavigationContainer} from '@react-navigation/native';
+import Tabs from './navigation/Tabs';
+
+// Expo
+import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
 import {Asset} from 'expo-asset';
+import {Ionicons} from '@expo/vector-icons';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -55,9 +60,9 @@ function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView}>
-      <Text>App is ready!</Text>
-    </View>
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
   );
 }
 
