@@ -9,15 +9,27 @@ import {Asset} from 'expo-asset';
 
 SplashScreen.preventAutoHideAsync();
 
+const loadFonts = (fonts: {[x: string]: any}[]) =>
+  fonts.map(font => Font.loadAsync(font));
+
+const loadImages = (images: (string | number)[]) =>
+  images.map(image => {
+    if (typeof image === 'string') {
+      return Image.prefetch(image);
+    } else {
+      return Asset.loadAsync(image);
+    }
+  });
+
 function App() {
   const [appIsReady, setAppIsReady] = useState(false);
 
   useEffect(() => {
     async function prepare() {
       try {
-        await Font.loadAsync(Ionicons.font);
-        await Asset.loadAsync(require('./assets/hart.jpg'));
-        // await Image.prefetch('링크');
+        const fonts = loadFonts([Ionicons.font]);
+        const images = loadImages([require('./assets/hart.jpg')]);
+        await Promise.all([...fonts, ...images]);
       } catch (e) {
         console.warn(e);
       } finally {
@@ -43,14 +55,7 @@ function App() {
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-      }}
-      onLayout={onLayoutRootView}>
+    <View onLayout={onLayoutRootView}>
       <Text>App is ready!</Text>
     </View>
   );
