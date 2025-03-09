@@ -10,6 +10,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@expo/metro-runtime": "^4.0.1",
+    "expo": "^52.0.0",
+    "expo-asset": "~11.0.4",
+    "expo-font": "~13.0.4",
+    "expo-modules-core": "^2.2.2",
+    "expo-splash-screen": "^0.29.22",
     "react": "19.0.0",
     "react-native": "0.78.0"
   },
@@ -35,5 +41,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "packageManager": "yarn@4.4.0"
 }

@@ -1,4 +1,8 @@
 {
   "name": "Moovies",
-  "displayName": "Moovies"
+  "displayName": "Moovies",
+  "plugins": [
+    "expo-font",
+    "expo-asset"
+  ]
 }
