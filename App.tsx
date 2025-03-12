@@ -1,6 +1,8 @@
 import React from 'react';
 import {useState, useEffect, useCallback} from 'react';
-import {Text, Image, View} from 'react-native';
+import {Text, Image, View, useColorScheme} from 'react-native';
+import {darkTheme, lightTheme} from './styled';
+import {ThemeProvider} from 'styled-components/native';
 
 // Navigation
 import {NavigationContainer} from '@react-navigation/native';
@@ -57,14 +59,18 @@ function App() {
     }
   }, [appIsReady]);
 
+  const isDark = useColorScheme() === 'dark';
+
   if (!appIsReady) {
     return null;
   }
 
   return (
-    <NavigationContainer>
-      <Root />
-    </NavigationContainer>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+      <NavigationContainer>
+        <Root />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
 
