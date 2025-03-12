@@ -3690,6 +3690,7 @@ __metadata:
     eslint: "npm:^8.19.0"
     expo: "npm:^52.0.37"
     expo-asset: "npm:~11.0.4"
+    expo-blur: "npm:^14.0.3"
     expo-font: "npm:~13.0.4"
     expo-modules-core: "npm:^2.2.2"
     expo-splash-screen: "npm:~0.29.22"
@@ -3699,6 +3700,7 @@ __metadata:
     react-native: "npm:0.78.0"
     react-native-safe-area-context: "npm:^5.3.0"
     react-native-screens: "npm:^4.9.1"
+    react-native-swiper: "npm:^1.6.0"
     react-test-renderer: "npm:19.0.0"
     styled-components: "npm:5.3.10"
     typescript: "npm:5.0.4"
@@ -6000,6 +6002,17 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10c0/5ccdcdbfb46045d262cf23694cd9732027f6f0787fa4b78975135f39fbfa430ea24dc9c23024c604f32bc5f5a782e3fdcd615b4dc4e6d0a22caebc0537fe83a7
+  languageName: node
+  linkType: hard
+
+"expo-blur@npm:^14.0.3":
+  version: 14.0.3
+  resolution: "expo-blur@npm:14.0.3"
+  peerDependencies:
+    expo: "*"
+    react: "*"
+    react-native: "*"
+  checksum: 10c0/fa511f6a2cf893a6b9fe2baac121e34655f5f10d7fb9fbcee1482acd9c30436bdfcb8ad0587bff65bef5cf7b7dfaf740e4c771cdd0d956e92df0ddf39173631e
   languageName: node
   linkType: hard
 
@@ -9847,7 +9860,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.10, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -10007,6 +10020,15 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10c0/2debc26beea458996873d66741d7d57653507852f67e5cf73011cc28770bb659cbb6b3060e35892ad0cd8db4f4e64198f94bc2085681f1450b6b446253553454
+  languageName: node
+  linkType: hard
+
+"react-native-swiper@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "react-native-swiper@npm:1.6.0"
+  dependencies:
+    prop-types: "npm:^15.5.10"
+  checksum: 10c0/5cddf220f8a910b82220aafd1b17a51dd6d2cc2cab14304c133409b2198f88ff8de9cde016f2d1ca1e0f2c742500bc2db98db4b44317ad49feea9d68747b596e
   languageName: node
   linkType: hard
 
