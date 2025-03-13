@@ -6,14 +6,12 @@ import {ThemeProvider} from 'styled-components/native';
 
 // Navigation
 import {NavigationContainer} from '@react-navigation/native';
-import Tabs from './navigation/Tabs';
 
 // Expo
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import {Asset} from 'expo-asset';
 import {Ionicons} from '@expo/vector-icons';
-import Stack from './navigation/Stack';
 import Root from './navigation/Root';
 
 SplashScreen.preventAutoHideAsync();
