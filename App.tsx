@@ -6,6 +6,7 @@ import {ThemeProvider} from 'styled-components/native';
 
 // Navigation
 import {NavigationContainer} from '@react-navigation/native';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 // Expo
 import * as SplashScreen from 'expo-splash-screen';
@@ -27,6 +28,8 @@ const loadImages = (images: (string | number)[]) =>
       return Asset.loadAsync(image);
     }
   });
+
+const queryClient = new QueryClient();
 
 function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -64,11 +67,13 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-      <NavigationContainer>
-        <Root />
-      </NavigationContainer>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <NavigationContainer>
+          <Root />
+        </NavigationContainer>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
