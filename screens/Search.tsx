@@ -6,10 +6,12 @@ import {moviesApi, tvApi} from '../api';
 import HList from '../components/HList';
 import Loader from '../components/Loader';
 
-const Container = styled.ScrollView``;
+const Container = styled.ScrollView`
+  background-color: ${props => props.theme.mainBgColor};
+`;
 
 const SearchBar = styled.TextInput`
-  background-color: white;
+  background-color: ${props => props.theme.bgColor};
   padding: 10px 15px;
   border-radius: 15px;
   width: 90%;

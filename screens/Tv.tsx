@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {RefreshControl, ScrollView, useColorScheme} from 'react-native';
 import {useQuery, useQueryClient} from '@tanstack/react-query';
 import {tvApi} from '../api';
@@ -7,6 +7,8 @@ import Loader from '../components/Loader';
 import {COLORS} from '../colors';
 const Tv = () => {
   const [refreshing, setRefreshing] = useState(false);
+  const isDark = useColorScheme() === 'dark';
+
   const queryClient = useQueryClient();
   const {
     isLoading: todayLoading,
@@ -41,7 +43,7 @@ const Tv = () => {
   if (loading) {
     return <Loader />;
   }
-  const isDark = useColorScheme() === 'dark';
+
   const colors = isDark ? COLORS.dark : COLORS.light;
 
   return (

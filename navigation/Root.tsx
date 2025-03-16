@@ -9,7 +9,14 @@ const Root = () => {
   return (
     <Nav.Navigator screenOptions={{headerShown: false}}>
       <Nav.Screen name="Tabs" component={Tabs} />
-      <Nav.Screen name="Stack" component={Stack} />
+      <Nav.Screen
+        name="Stack"
+        component={Stack}
+        options={{
+          presentation: 'modal',
+          animation: 'slide_from_bottom',
+        }}
+      />
     </Nav.Navigator>
   );
 };
