@@ -6,6 +6,7 @@ import HList from '../components/HList';
 import Loader from '../components/Loader';
 import {COLORS} from '../colors';
 const Tv = () => {
+  const [refreshing, setRefreshing] = useState(false);
   const queryClient = useQueryClient();
   const {
     isLoading: todayLoading,
@@ -31,11 +32,12 @@ const Tv = () => {
     queryKey: ['tv', 'trending'],
     queryFn: tvApi.trending,
   });
-  const onRefresh = () => {
-    queryClient.refetchQueries({queryKey: ['tv']});
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await queryClient.refetchQueries({queryKey: ['tv']});
+    setRefreshing(false);
   };
   const loading = todayLoading || topLoading || trendingLoading;
-  const refreshing = todayRefetching || topRefetching || trendingRefetching;
   if (loading) {
     return <Loader />;
   }

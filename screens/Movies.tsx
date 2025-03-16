@@ -48,6 +48,7 @@ const ComingSoonTitle = styled(ListTitle)`
 `;
 
 const Movies: React.FC<NativeStackScreenProps<any, 'Movies'>> = () => {
+  const [refreshing, setRefreshing] = useState(false);
   const queryClient = useQueryClient();
   const {
     isLoading: nowPlayingLoading,
@@ -77,11 +78,12 @@ const Movies: React.FC<NativeStackScreenProps<any, 'Movies'>> = () => {
   });
 
   const onRefresh = async () => {
-    queryClient.refetchQueries({queryKey: ['movies']});
+    setRefreshing(true);
+    await queryClient.refetchQueries({queryKey: ['movies']});
+    setRefreshing(false);
   };
   const loading = nowPlayingLoading || upcomingLoading || trendingLoading;
-  const refreshing =
-    isRefetchingNowPlaying || isRefetchingUpcoming || isRefetchingTrending;
+
   const isDark = useColorScheme() === 'dark';
   const colors = isDark ? COLORS.dark : COLORS.light;
 
