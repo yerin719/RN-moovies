@@ -1,4 +1,7 @@
+export const BLACK_COLOR = '#1e272e';
+
 export const COLORS = {
+  BLACK_COLOR,
   // Light Mode
   light: {
     PRIMARY: '#ffffff', // 주 배경색

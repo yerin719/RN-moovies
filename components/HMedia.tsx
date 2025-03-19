@@ -49,6 +49,7 @@ interface HMediaProps {
   overview: string;
   releaseDate?: string;
   voteAverage?: number;
+  fullData: Movie | TV;
 }
 
 const HMedia: React.FC<HMediaProps> = ({
@@ -57,12 +58,19 @@ const HMedia: React.FC<HMediaProps> = ({
   overview,
   releaseDate,
   voteAverage,
+  fullData,
 }) => {
   const isDark = useColorScheme() === 'dark';
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const goToDetail = () => {
-    navigation.navigate('Stack', {screen: 'Detail'});
+    //@ts-ignore
+    navigation.navigate('Stack', {
+      screen: 'Detail',
+      params: {
+        ...fullData,
+      },
+    });
   };
   return (
     <TouchableOpacity onPress={goToDetail}>

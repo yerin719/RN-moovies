@@ -9,8 +9,9 @@ import {
 import styled from 'styled-components/native';
 import {makeImgPath} from '../utils';
 import Poster from './Poster';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/core';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {Movie, TV} from '../api';
 
 type RootStackParamList = {
   Stack: {
@@ -51,6 +52,7 @@ interface SlideProps {
   originalTitle: string;
   voteAverage: number;
   overview: string;
+  fullData: Movie | TV;
 }
 
 const Slide: React.FC<SlideProps> = ({
@@ -59,14 +61,20 @@ const Slide: React.FC<SlideProps> = ({
   originalTitle,
   voteAverage,
   overview,
+  fullData,
 }) => {
   const isDark = useColorScheme() === 'dark';
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const goToDetail = () => {
-    navigation.navigate('Stack', {screen: 'Detail'});
+    //@ts-ignore
+    navigation.navigate('Stack', {
+      screen: 'Detail',
+      params: {
+        ...fullData,
+      },
+    });
   };
-
   return (
     <TouchableWithoutFeedback onPress={goToDetail}>
       <View style={{flex: 1}}>
